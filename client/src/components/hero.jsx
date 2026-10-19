@@ -26,7 +26,7 @@ function Hero() {
             <br />
             <span>Maheshwari.</span>
           </h1>
-          
+
           <h2 className="hero-role">
             <span className="role-prefix">I'm a </span>
 
@@ -63,9 +63,29 @@ function Hero() {
               Explore My Work <span>↗</span>
             </a>
 
-            <a href="/resume.pdf" className="btn-secondary" download>
-              <span>↓</span> Download CV
-            </a>
+            <details className="cv-dropdown">
+              <summary className="download-cv-btn">
+                Download CV <span>▾</span>
+              </summary>
+
+              <div className="cv-dropdown-menu">
+                <a
+                  href="http://localhost:5001/api/resume/pdf"
+                  className="cv-dropdown-option"
+                >
+                  <span>PDF Document</span>
+                  <span>.PDF ↗</span>
+                </a>
+
+                <a
+                  href="http://localhost:5001/api/resume/docx"
+                  className="cv-dropdown-option"
+                >
+                  <span>Word Document</span>
+                  <span>.DOCX ↗</span>
+                </a>
+              </div>
+            </details>
           </div>
 
           <div className="hero-socials">

@@ -5,7 +5,7 @@
   padding: 110px 7%;
   color: #f8f0f2;
 
-  background:
+  /* background:
     radial-gradient(
       ellipse at 90% 15%,
       rgba(110, 20, 47, 0.2),
@@ -16,7 +16,9 @@
       #0a090b 0%,
       #130a0f 50%,
       #0b090b 100%
-    );
+    ); */
+    background: var(--page-bg);
+    color: var(--text-primary);
 }
 
 .projects-container {
@@ -452,4 +454,129 @@
     animation: none !important;
     transition: none !important;
   }
+}
+
+/* =========================
+   LIGHT MODE - PROJECTS
+========================= */
+
+:root[data-theme="light"] .projects-section {
+  color: #29121c;
+}
+
+/* Heading */
+:root[data-theme="light"] .projects-eyebrow {
+  color: #a42c50;
+}
+
+:root[data-theme="light"] .projects-heading h2 {
+  color: #29121c;
+}
+
+:root[data-theme="light"] .projects-heading h2 span {
+  color: #c93665;
+}
+
+:root[data-theme="light"] .projects-heading > p {
+  color: #70505d;
+}
+
+/* Project cards */
+:root[data-theme="light"] .project-card {
+  background: rgba(255, 255, 255, 0.82);
+  border-color: rgba(164, 44, 80, 0.15);
+  box-shadow: 0 8px 28px rgba(75, 20, 42, 0.05);
+}
+
+:root[data-theme="light"] .project-card:hover {
+  border-color: rgba(201, 54, 101, 0.4);
+  box-shadow: 0 18px 45px rgba(75, 20, 42, 0.12);
+}
+
+/* Card header */
+:root[data-theme="light"] .project-number {
+  color: #a42c50;
+}
+
+:root[data-theme="light"] .project-category {
+  color: #8e1f43;
+  background: rgba(201, 54, 101, 0.07);
+  border-color: rgba(164, 44, 80, 0.2);
+}
+
+/* Keep project banners dark for contrast */
+:root[data-theme="light"] .project-visual {
+  border-color: rgba(164, 44, 80, 0.15);
+}
+
+:root[data-theme="light"] .project-visual-content h3 {
+  color: #fff5f8;
+}
+
+:root[data-theme="light"] .project-mini-label {
+  color: #ffc0d2;
+}
+
+:root[data-theme="light"] .project-visual-content p {
+  color: #f4dce5;
+}
+
+/* Project information */
+:root[data-theme="light"] .project-info h4 {
+  color: #29121c;
+}
+
+:root[data-theme="light"] .project-description {
+  color: #70505d;
+}
+
+/* Technology badges */
+:root[data-theme="light"] .project-tech span {
+  color: #713047;
+  background: rgba(164, 44, 80, 0.055);
+  border-color: rgba(164, 44, 80, 0.14);
+}
+
+:root[data-theme="light"] .project-card:hover .project-tech span {
+  border-color: rgba(201, 54, 101, 0.3);
+}
+
+/* GitHub links */
+:root[data-theme="light"] .project-links {
+  border-top-color: rgba(110, 20, 47, 0.13);
+}
+
+:root[data-theme="light"] .project-github {
+  color: #512437;
+}
+
+:root[data-theme="light"] .github-icon {
+  color: #a42c50;
+  background: rgba(164, 44, 80, 0.06);
+  border-color: rgba(164, 44, 80, 0.2);
+}
+
+:root[data-theme="light"] .project-link-arrow {
+  color: #a42c50;
+}
+
+:root[data-theme="light"] .project-github:hover {
+  color: #c93665;
+}
+
+/* Footer */
+:root[data-theme="light"] .projects-footer {
+  border-top-color: rgba(110, 20, 47, 0.14);
+}
+
+:root[data-theme="light"] .projects-footer > span {
+  color: #80616d;
+}
+
+:root[data-theme="light"] .projects-footer a {
+  color: #a42c50;
+}
+
+:root[data-theme="light"] .projects-footer a:hover {
+  color: #d83f70;
 }

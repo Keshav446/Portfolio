@@ -1,17 +1,18 @@
-
 .journey-section {
   position: relative;
   overflow: hidden;
   padding: 110px 7%;
   color: #f8f0f2;
 
-  background:
+  /* background:
     radial-gradient(
       ellipse at 0% 50%,
       rgba(110, 20, 47, 0.18),
       transparent 45%
     ),
-    linear-gradient(180deg, #0b090b, #140a10);
+    linear-gradient(180deg, #0b090b, #140a10); */
+  background: var(--page-bg);
+  color: var(--text-primary);
 }
 
 .journey-container {
@@ -46,7 +47,7 @@
   color: #f07b9b;
 }
 
-.journey-heading > p {
+.journey-heading>p {
   max-width: 530px;
   margin-top: 18px;
   color: #b9a5ad;
@@ -116,11 +117,9 @@
   bottom: 8px;
   left: 5px;
   width: 1px;
-  background: linear-gradient(
-    180deg,
-    #f07b9b,
-    rgba(240, 123, 155, 0.08)
-  );
+  background: linear-gradient(180deg,
+      #f07b9b,
+      rgba(240, 123, 155, 0.08));
 }
 
 .journey-item {
@@ -307,10 +306,129 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   .journey-section *,
   .journey-section *::before,
   .journey-section *::after {
     animation: none !important;
     transition: none !important;
   }
+}
+
+
+/* =========================
+   LIGHT MODE - JOURNEY
+========================= */
+
+:root[data-theme="light"] .journey-section {
+  color: #29121c;
+}
+
+:root[data-theme="light"] .journey-eyebrow {
+  color: #a42c50;
+}
+
+:root[data-theme="light"] .journey-heading h2 {
+  color: #29121c;
+}
+
+:root[data-theme="light"] .journey-heading h2 span {
+  color: #c93665;
+}
+
+:root[data-theme="light"] .journey-heading > p {
+  color: #70505d;
+}
+
+:root[data-theme="light"] .journey-column-heading h3 {
+  color: #29121c;
+}
+
+:root[data-theme="light"] .journey-column-heading p {
+  color: #80616d;
+}
+
+:root[data-theme="light"] .journey-heading-icon {
+  color: #a42c50;
+  background: rgba(164, 44, 80, 0.07);
+  border-color: rgba(164, 44, 80, 0.2);
+}
+
+:root[data-theme="light"] .journey-timeline::before {
+  background: linear-gradient(
+    180deg,
+    #c93665,
+    rgba(201, 54, 101, 0.12)
+  );
+}
+
+:root[data-theme="light"] .journey-marker {
+  background: #c93665;
+  border-color: #fff1f5;
+  box-shadow: 0 0 10px rgba(201, 54, 101, 0.25);
+}
+
+/* Timeline cards */
+:root[data-theme="light"] .journey-card {
+  background: rgba(255, 255, 255, 0.82);
+  border-color: rgba(164, 44, 80, 0.15);
+  box-shadow: 0 8px 28px rgba(75, 20, 42, 0.05);
+}
+
+:root[data-theme="light"] .journey-card:hover {
+  background: #fffafd;
+  border-color: rgba(201, 54, 101, 0.4);
+  box-shadow: 0 12px 32px rgba(75, 20, 42, 0.09);
+}
+
+:root[data-theme="light"] .journey-type {
+  color: #a42c50;
+}
+
+:root[data-theme="light"] .journey-year {
+  color: #80616d;
+}
+
+:root[data-theme="light"] .journey-card h4 {
+  color: #29121c;
+}
+
+:root[data-theme="light"] .journey-institution {
+  color: #70505d;
+}
+
+:root[data-theme="light"] .journey-card-bottom {
+  border-top-color: rgba(110, 20, 47, 0.12);
+}
+
+:root[data-theme="light"] .journey-detail {
+  color: #80616d;
+}
+
+:root[data-theme="light"] .journey-score {
+  color: #c93665;
+}
+
+/* Internship details */
+:root[data-theme="light"] .journey-role {
+  color: #8e1f43;
+  background: rgba(201, 54, 101, 0.07);
+  border-color: rgba(164, 44, 80, 0.2);
+}
+
+:root[data-theme="light"] .journey-description {
+  color: #70505d;
+}
+
+/* Certificate links */
+:root[data-theme="light"] .journey-section .certificate-link {
+  color: #a42c50;
+}
+
+:root[data-theme="light"] .journey-section .certificate-link:hover {
+  color: #d83f70;
+}
+
+:root[data-theme="light"] .journey-section .certificate-pending {
+  color: #80616d;
 }

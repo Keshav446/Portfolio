@@ -37,3 +37,69 @@ textarea {
   background: #a42c50;
   color: white;
 }
+
+:root,
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --page-bg:
+    radial-gradient(
+      ellipse at 75% 45%,
+      rgba(115, 19, 50, 0.58),
+      transparent 48%
+    ),
+    radial-gradient(
+      ellipse at 10% 95%,
+      rgba(95, 12, 39, 0.6),
+      transparent 45%
+    ),
+    linear-gradient(
+      125deg,
+      #080809 0%,
+      #220b13 48%,
+      #3b0d1e 100%
+    );
+
+  --surface-bg: #140d11;
+  --text-primary: #f8f0f2;
+  --text-muted: #b9a5ad;
+  --border-color: rgba(240, 123, 155, 0.2);
+  --accent: #f07b9b;
+}
+
+
+:root[data-theme="light"] {
+  color-scheme: light;
+
+  --page-bg:
+    radial-gradient(
+      ellipse at 75% 40%,
+      rgba(220, 105, 145, 0.13),
+      transparent 48%
+    ),
+    radial-gradient(
+      ellipse at 10% 95%,
+      rgba(164, 44, 80, 0.09),
+      transparent 45%
+    ),
+    linear-gradient(
+      125deg,
+      #fff9fb 0%,
+      #fff1f5 48%,
+      #fce8ef 100%
+    );
+
+  --surface-bg: #fff8fa;
+  --text-primary: #29121c;
+  --text-muted: #70505d;
+  --border-color: rgba(110, 20, 47, 0.18);
+  --accent: #a42c50;
+}
+
+
+body {
+  background: var(--page-bg);
+  background-attachment: fixed;
+  color: var(--text-primary);
+  transition: color 0.3s ease;
+}

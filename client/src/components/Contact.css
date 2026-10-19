@@ -1,8 +1,8 @@
 
 .contact-section {
   padding: 100px 7%;
-  background: #0b090b;
-  color: #f8f0f2;
+  background: var(--page-bg);
+  color: var(--text-primary);
   scroll-margin-top: 80px;
 }
 
@@ -220,3 +220,103 @@
     margin-bottom: 38px;
   }
 }
+
+
+
+/* ==================================
+   CONTACT SECTION — LIGHT MODE
+================================== */
+
+:root[data-theme="light"] .contact-section {
+  color: #29121c;
+}
+
+/* Heading */
+:root[data-theme="light"] .contact-tag {
+  color: #a42c50;
+}
+
+:root[data-theme="light"] .contact-heading h2 {
+  color: #29121c;
+}
+
+:root[data-theme="light"] .contact-heading h2 span {
+  color: #c93665;
+}
+
+:root[data-theme="light"] .contact-heading p,
+:root[data-theme="light"] .contact-info > p {
+  color: #70505d;
+}
+
+/* Contact information */
+:root[data-theme="light"] .contact-info h3,
+:root[data-theme="light"] .contact-info-item h4 {
+  color: #29121c;
+}
+
+:root[data-theme="light"] .contact-icon {
+  color: #a42c50;
+  background: rgba(164, 44, 80, 0.07);
+  border-color: rgba(164, 44, 80, 0.2);
+}
+
+:root[data-theme="light"] .contact-info-item a {
+  color: #70505d;
+}
+
+:root[data-theme="light"] .contact-info-item a:hover {
+  color: #c93665;
+}
+
+/* Form card */
+:root[data-theme="light"] .contact-form {
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.96),
+    rgba(255, 244, 248, 0.92)
+  );
+  border-color: rgba(164, 44, 80, 0.17);
+  box-shadow: 0 18px 45px rgba(92, 30, 53, 0.09);
+}
+
+/* Labels */
+:root[data-theme="light"] .contact-field label {
+  color: #39232d;
+}
+
+/* Input and textarea */
+:root[data-theme="light"] .contact-field input,
+:root[data-theme="light"] .contact-field textarea {
+  color: #29121c;
+  background: #fffafd;
+  border-color: rgba(110, 20, 47, 0.17);
+}
+
+:root[data-theme="light"] .contact-field input::placeholder,
+:root[data-theme="light"] .contact-field textarea::placeholder {
+  color: #947783;
+}
+
+:root[data-theme="light"] .contact-field input:focus,
+:root[data-theme="light"] .contact-field textarea:focus {
+  border-color: #c93665;
+  box-shadow: 0 0 0 3px rgba(201, 54, 101, 0.12);
+}
+
+/* Submit button */
+:root[data-theme="light"] .contact-submit {
+  color: #ffffff;
+  background: linear-gradient(100deg, #8e1f43, #c93665);
+  box-shadow: 0 5px 16px rgba(164, 44, 80, 0.12);
+}
+
+:root[data-theme="light"] .contact-submit:hover {
+  box-shadow: 0 9px 25px rgba(164, 44, 80, 0.24);
+}
+
+/* Form status */
+:root[data-theme="light"] .contact-status {
+  color: #8e1f43;
+}
+

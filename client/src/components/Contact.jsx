@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import "./Contact.css";
 
@@ -19,18 +18,40 @@ function Contact() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setStatus("Sending message...");
 
-    // Backend API integration will be added next.
-    setStatus("Frontend ready! Backend connection is pending.");
+    try {
+      const response = await fetch("http://localhost:5001/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
-    setFormData({
-      name: "",
-      email: "",
-      subject: "",
-      message: "",
-    });
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.message || "Failed to send message.");
+      }
+
+      setStatus("Message sent successfully!");
+
+      setFormData({
+        name: "",
+        email: "",
+        subject: "",
+        message: "",
+      });
+    } catch (error) {
+      setStatus(
+        error.message === "Failed to fetch"
+          ? "Unable to connect to the server. Please try again."
+          : error.message,
+      );
+    }
   };
 
   return (
@@ -42,8 +63,8 @@ function Contact() {
             Let's Work <span>Together</span>
           </h2>
           <p>
-            Have an idea, opportunity, or just want to connect?
-            Feel free to drop me a message.
+            Have an idea, opportunity, or just want to connect? Feel free to
+            drop me a message.
           </p>
         </div>
 
@@ -51,8 +72,8 @@ function Contact() {
           <div className="contact-info">
             <h3>Let's start a conversation</h3>
             <p>
-              I'm always open to discussing new projects,
-              creative ideas, and opportunities to learn and grow.
+              I'm always open to discussing new projects, creative ideas, and
+              opportunities to learn and grow.
             </p>
 
             <div className="contact-info-item">
@@ -155,7 +176,11 @@ function Contact() {
               Send Message <span>↗</span>
             </button>
 
-            {status && <p className="contact-status" role="status">{status}</p>}
+            {status && (
+              <p className="contact-status" role="status">
+                {status}
+              </p>
+            )}
           </form>
         </div>
       </div>
