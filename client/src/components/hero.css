@@ -301,11 +301,13 @@
 .profile-image {
   display: block;
   width: 100%;
-  aspect-ratio: 4 / 4.5;
+  aspect-ratio: 4 / 4.8;
   object-fit: cover;
-  object-position: center;
-  border-radius: 15px;
-  background: #f1e8eb;
+  object-position: 53% top;
+  border-radius: 18px;
+  background: transparent;
+  -webkit-mask-image: linear-gradient(to bottom, black 86%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 86%, transparent 100%);
 }
 
 .profile-caption {
@@ -686,12 +688,10 @@
 
 /* Fix Maheshwari gradient: remove the white start */
 :root[data-theme="light"] .hero .hero-text h1 span {
-  background: linear-gradient(
-    100deg,
-    #a42c50 0%,
-    #c93665 55%,
-    #df527b 100%
-  );
+  background: linear-gradient(100deg,
+      #a42c50 0%,
+      #c93665 55%,
+      #df527b 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -804,8 +804,3 @@
   background: linear-gradient(110deg, #8e1f43, #c93665);
   box-shadow: 0 8px 22px rgba(164, 44, 80, 0.2);
 }
-
-
-
-
-

@@ -103,10 +103,11 @@
   inset: 12px;
   border-radius: 16px;
   pointer-events: none;
-  /* background: linear-gradient(180deg,
-      transparent 55%,
-      rgba(44, 8, 22, 0.35)); */
-  background: var(--page-bg);
+  background: linear-gradient(
+    180deg,
+    transparent 55%,
+    rgba(44, 8, 22, 0.35)
+  );
 }
 
 .about-floating-card {

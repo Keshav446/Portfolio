@@ -1,6 +1,6 @@
 
 import "./About.css";
-
+import profile from "../assets/Keshav_profile.png"
 function About() {
   const highlights = [
     {
@@ -45,7 +45,7 @@ function About() {
           <div className="about-visual">
             <div className="about-image-frame">
               <img
-                src="/hero.png"
+                src={profile}
                 alt="Keshav Maheshwari"
                 className="about-image"
               />

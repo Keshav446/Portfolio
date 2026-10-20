@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "./Hero.css";
-import profile from "../assets/hero.png";
+import profile from "../assets/character_profile.png";
 import { TypeAnimation } from "react-type-animation";
 import Header from "./Header";
 
@@ -91,7 +91,7 @@ function Hero() {
           <div className="hero-socials">
             <span className="social-label">FIND ME ON</span>
             <a
-              href="https://github.com/YOUR_USERNAME"
+              href="https://github.com/Keshav446"
               target="_blank"
               rel="noreferrer"
               aria-label="GitHub"
@@ -99,14 +99,14 @@ function Hero() {
               GH
             </a>
             <a
-              href="https://linkedin.com/in/YOUR_USERNAME"
+              href="https://www.linkedin.com/in/keshav-maheshwari-km0404/"
               target="_blank"
               rel="noreferrer"
               aria-label="LinkedIn"
             >
               in
             </a>
-            <a href="mailto:YOUR_EMAIL" aria-label="Email">
+            <a href="mailto:keshavmaheshwari4438@gmail.com" aria-label="Email">
               @
             </a>
           </div>

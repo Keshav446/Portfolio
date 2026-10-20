@@ -39,7 +39,7 @@ const experience = [
     role: "YOUR INTERNSHIP ROLE",
     description:
       "Worked as an intern and gained practical exposure to a professional work environment. Update this description with your actual responsibilities, projects, and achievements.",
-    certificateUrl: "", // Add your actual certificate URL here
+    certificateUrl: "https://drive.google.com/file/d/1JV0ADO7LQ_XcjOBvvBY0E4A60CD5X1lH/view?usp=share_link", // Add your actual certificate URL here
   },
 ];
 

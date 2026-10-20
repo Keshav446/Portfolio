@@ -300,6 +300,44 @@
   color: #a99099;
 }
 
+/* View all button */
+.certificates-action {
+  display: flex;
+  justify-content: center;
+  margin-top: 48px;
+}
+
+.certificates-view-all-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 26px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  background: linear-gradient(120deg, #b72e53, #e34e76);
+  color: #ffffff;
+  box-shadow: 0 7px 25px rgba(188, 42, 82, 0.22);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.certificates-view-all-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 32px rgba(188, 42, 82, 0.38);
+  color: #ffffff;
+}
+
+.certificates-view-all-btn span {
+  transition: transform 0.25s ease;
+}
+
+.certificates-view-all-btn:hover span {
+  transform: translate(3px, -3px);
+}
+
 /* Responsive */
 
 @media (max-width: 900px) {
@@ -435,4 +473,16 @@
 
 :root[data-theme="light"] .certificate-add-link {
   color: #80616d;
+}
+
+/* View all button - light mode */
+:root[data-theme="light"] .certificates-view-all-btn {
+  background: linear-gradient(120deg, #a42c50, #c93665);
+  box-shadow: 0 7px 25px rgba(164, 44, 80, 0.22);
+  color: #ffffff;
+}
+
+:root[data-theme="light"] .certificates-view-all-btn:hover {
+  box-shadow: 0 10px 32px rgba(164, 44, 80, 0.35);
+  color: #ffffff;
 }

@@ -258,6 +258,8 @@
   margin: 0 0 12px;
   font-size: 19px;
   letter-spacing: -0.3px;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .project-description {
@@ -345,6 +347,53 @@
 }
 
 .project-github:hover .project-link-arrow {
+  transform: translate(3px, -3px);
+}
+
+.project-github-placeholder {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #a99099;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* View All Projects button */
+.projects-action {
+  display: flex;
+  justify-content: center;
+  margin-top: 48px;
+}
+
+.projects-view-all-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 26px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  background: linear-gradient(120deg, #b72e53, #e34e76);
+  color: #ffffff;
+  box-shadow: 0 7px 25px rgba(188, 42, 82, 0.22);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.projects-view-all-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 32px rgba(188, 42, 82, 0.38);
+  color: #ffffff;
+}
+
+.projects-view-all-btn span {
+  transition: transform 0.25s ease;
+}
+
+.projects-view-all-btn:hover span {
   transform: translate(3px, -3px);
 }
 
@@ -579,4 +628,21 @@
 
 :root[data-theme="light"] .projects-footer a:hover {
   color: #d83f70;
+}
+
+/* Project placeholder - light mode */
+:root[data-theme="light"] .project-github-placeholder {
+  color: #80616d;
+}
+
+/* View all button - light mode */
+:root[data-theme="light"] .projects-view-all-btn {
+  background: linear-gradient(120deg, #a42c50, #c93665);
+  box-shadow: 0 7px 25px rgba(164, 44, 80, 0.22);
+  color: #ffffff;
+}
+
+:root[data-theme="light"] .projects-view-all-btn:hover {
+  box-shadow: 0 10px 32px rgba(164, 44, 80, 0.35);
+  color: #ffffff;
 }
