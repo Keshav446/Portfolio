@@ -30,8 +30,8 @@ function Header() {
         <a href="#projects">Projects</a>
         <a href="#skills">Skills</a>
         <a href="#education">Experience</a>
-        <a href="#contact">Contact</a>
         <a href="#certificates">Certifications</a>
+        <a href="#contact">Contact</a>
       </div>
 
       <a className="nav-cta" href="#contact">

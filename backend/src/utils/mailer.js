@@ -39,6 +39,9 @@ function createTransporter() {
       user: SMTP_USER,
       pass: SMTP_PASS,
     },
+    connectionTimeout: 1000,
+    greetingTimeout: 1000,
+    socketTimeout: 1500,
   });
 }
 
