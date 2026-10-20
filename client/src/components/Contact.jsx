@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./Contact.css";
-
+const API_URL = import.meta.env.VITE_API_URL;
 function Contact() {
   const [formData, setFormData] = useState({
     name: "Keshav Maheshwari",
@@ -23,7 +23,7 @@ function Contact() {
     setStatus("Sending message...");
 
     try {
-      const response = await fetch("http://localhost:5001/api/contact", {
+      const response = await fetch(`${API_URL}/api/contact`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

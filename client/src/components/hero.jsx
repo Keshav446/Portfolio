@@ -3,7 +3,7 @@ import "./hero.css";
 import profile from "../assets/character_profile.png";
 import { TypeAnimation } from "react-type-animation";
 import Header from "./Header";
-
+const API_URL = import.meta.env.VITE_API_URL;
 const roles = ["MERN Stack Developer", "Frontend Developer", "Problem Solver"];
 
 function Hero() {
@@ -70,7 +70,7 @@ function Hero() {
 
               <div className="cv-dropdown-menu">
                 <a
-                  href="http://localhost:5001/api/resume/pdf"
+                  href={`${API_URL}/api/resume/pdf`}
                   className="cv-dropdown-option"
                 >
                   <span>PDF Document</span>
@@ -78,7 +78,7 @@ function Hero() {
                 </a>
 
                 <a
-                  href="http://localhost:5001/api/resume/docx"
+                  href={`${API_URL}/api/resume/docx`}
                   className="cv-dropdown-option"
                 >
                   <span>Word Document</span>
