@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import "./Hero.css";
+import "./hero.css";
 import profile from "../assets/character_profile.png";
 import { TypeAnimation } from "react-type-animation";
 import Header from "./Header";
