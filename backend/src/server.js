@@ -18,6 +18,13 @@ app.use(
 
 app.use(express.json({ limit: "10kb" }));
 app.use("/api/contact", contactRoutes);
+app.use((err, req, res, next) => {
+  console.error("API ERROR:", err);
+  res.status(500).json({
+    success: false,
+    message: err.message,
+  });
+});
 app.use("/api/resume", resumeRoutes);
 
 app.get("/api/health", (req, res) => {
