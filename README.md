@@ -70,15 +70,15 @@ PORT=5001
 MONGO_URI=your_mongodb_connection_uri
 CLIENT_URL=http://localhost:5173
 
-# Optional: configure these only if using Nodemailer
+Optional: configure these only if using Nodemailer
 SMTP_HOST=your_smtp_host
 SMTP_PORT=587
 SMTP_SECURE=false
 SMTP_USER=your_smtp_username
 SMTP_PASS=your_smtp_password
 CONTACT_RECEIVER_EMAIL=your_email_address
-# Optional:
-# SMTP_FROM="Portfolio Contact Form <your_smtp_username>"
+Optional:
+SMTP_FROM="Portfolio Contact Form <your_smtp_username>"
 
 Start the backend:
 npm run dev
