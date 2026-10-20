@@ -80,7 +80,7 @@ function Contact() {
               <div className="contact-icon">@</div>
               <div>
                 <h4>Email</h4>
-                <a href="keshavmaheshwari4438@gmail.com">
+                <a >
                   keshavmaheshwari4438@gmail.com
                 </a>
               </div>

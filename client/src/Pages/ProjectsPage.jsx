@@ -1,6 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { Link } from "react-router-dom";
 import ProjectCard from "../components/ProjectCard";
+import ProjectFilterSort from "../components/ProjectFilterSort";
 import projects from "../data/projects";
 import "./ProjectsPage.css";
 
@@ -8,6 +9,8 @@ function ProjectsPage() {
   const [theme, setTheme] = useState(
     () => localStorage.getItem("portfolio-theme") || "dark"
   );
+  const [selectedTech, setSelectedTech] = useState("All");
+  const [sortBy, setSortBy] = useState("default");
 
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
@@ -20,6 +23,44 @@ function ProjectsPage() {
 
   const toggleTheme = () => {
     setTheme((current) => (current === "dark" ? "light" : "dark"));
+  };
+
+  // Derive unique technology options dynamically from project data
+  const availableTechnologies = useMemo(() => {
+    const techSet = new Set();
+    projects.forEach((item) => {
+      const list = item.technologies || item.tech || [];
+      list.forEach((t) => {
+        if (typeof t === "string" && t.trim()) {
+          techSet.add(t.trim());
+        }
+      });
+    });
+    return Array.from(techSet).sort((a, b) => a.localeCompare(b));
+  }, []);
+
+  // Filter and sort projects based on active selection
+  const filteredAndSortedProjects = useMemo(() => {
+    let list = projects.filter((project) => {
+      if (selectedTech === "All") return true;
+      const techs = project.technologies || project.tech || [];
+      return techs.some(
+        (t) => t.trim().toLowerCase() === selectedTech.trim().toLowerCase()
+      );
+    });
+
+    if (sortBy === "title-asc") {
+      list = [...list].sort((a, b) => (a.title || "").localeCompare(b.title || ""));
+    } else if (sortBy === "title-desc") {
+      list = [...list].sort((a, b) => (b.title || "").localeCompare(a.title || ""));
+    }
+
+    return list;
+  }, [selectedTech, sortBy]);
+
+  const handleResetFilters = () => {
+    setSelectedTech("All");
+    setSortBy("default");
   };
 
   return (
@@ -58,14 +99,41 @@ function ProjectsPage() {
           </div>
         </header>
 
-        <main className="projects-grid">
-          {projects.map((project) => (
-            <ProjectCard
-              key={project.number || project.title}
-              project={project}
-            />
-          ))}
-        </main>
+        {/* Filter and Sort Controls */}
+        <ProjectFilterSort
+          technologies={availableTechnologies}
+          selectedTech={selectedTech}
+          onSelectTech={setSelectedTech}
+          sortBy={sortBy}
+          onSortChange={setSortBy}
+        />
+
+        {/* Results grid or empty state */}
+        {filteredAndSortedProjects.length > 0 ? (
+          <main className="projects-grid">
+            {filteredAndSortedProjects.map((project) => (
+              <ProjectCard
+                key={project.number || project.title}
+                project={project}
+              />
+            ))}
+          </main>
+        ) : (
+          <div className="projects-empty-state" role="status">
+            <div className="projects-empty-icon">⚲</div>
+            <h3>No matching projects found</h3>
+            <p>
+              No projects match the technology "<strong>{selectedTech}</strong>".
+            </p>
+            <button
+              type="button"
+              className="projects-empty-reset-btn"
+              onClick={handleResetFilters}
+            >
+              Show All Projects
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );

@@ -151,6 +151,25 @@
 
 import "./Skills.css";
 
+const skillProficiencies = {
+  HTML: "Comfortable",
+  CSS: "Comfortable",
+  JavaScript: "Intermediate",
+  "React.js": "Intermediate",
+  "Node.js": "Learning",
+  "Express.js": "Learning",
+  C: "Comfortable",
+  "C++": "Practicing",
+  Python: "Learning",
+  "Data Structures": "Practicing",
+  Algorithms: "Practicing",
+  SQL: "Intermediate",
+  MongoDB: "Learning",
+  DBMS: "Intermediate",
+  "Operating Systems": "Learning",
+  "Computer Networks": "Learning",
+};
+
 const skillGroups = [
   {
     title: "Frontend Development",
@@ -201,11 +220,11 @@ function Skills() {
         </div>
 
         <div className="skills-content">
-          {skillGroups.map((group, index) => (
+          {skillGroups.map((group, groupIndex) => (
             <div className="skills-row" key={group.title}>
               <div className="skills-category">
                 <span className="skills-index">
-                  0{index + 1}
+                  0{groupIndex + 1}
                 </span>
 
                 <div>
@@ -215,11 +234,38 @@ function Skills() {
               </div>
 
               <div className="skills-tags">
-                {group.skills.map((skill) => (
-                  <span className="skill-tag" key={skill}>
-                    {skill}
-                  </span>
-                ))}
+                {group.skills.map((skill, skillIndex) => {
+                  const proficiency = skillProficiencies[skill];
+                  const tooltipId = `skill-tooltip-${groupIndex}-${skillIndex}`;
+
+                  return (
+                    <span
+                      className="skill-tag"
+                      key={skill}
+                      tabIndex={0}
+                      role="region"
+                      aria-label={
+                        proficiency
+                          ? `${skill} - Proficiency: ${proficiency}`
+                          : skill
+                      }
+                      aria-describedby={proficiency ? tooltipId : undefined}
+                    >
+                      <span className="skill-name-text">{skill}</span>
+
+                      {proficiency && (
+                        <span
+                          className="skill-tooltip"
+                          id={tooltipId}
+                          role="tooltip"
+                        >
+                          <span className="skill-tooltip-label">Proficiency</span>
+                          <span className="skill-tooltip-level">{proficiency}</span>
+                        </span>
+                      )}
+                    </span>
+                  );
+                })}
               </div>
             </div>
           ))}

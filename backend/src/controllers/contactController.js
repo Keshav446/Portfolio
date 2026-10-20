@@ -1,5 +1,6 @@
 
 import Contact from "../models/contact.js";
+import { sendContactNotification } from "../utils/mailer.js";
 
 export const createContact = async (req, res) => {
   try {
@@ -12,6 +13,7 @@ export const createContact = async (req, res) => {
       });
     }
 
+    // Preserve existing MongoDB persistence
     const contact = await Contact.create({
       name,
       email,
@@ -19,9 +21,33 @@ export const createContact = async (req, res) => {
       message,
     });
 
+    // Attempt to send email notification via NodeMailer
+    let emailStatus = { success: false };
+    try {
+      emailStatus = await sendContactNotification({
+        name: contact.name,
+        email: contact.email,
+        subject: contact.subject,
+        message: contact.message,
+        createdAt: contact.createdAt,
+      });
+    } catch (mailError) {
+      console.error(
+        "Unexpected error while attempting email dispatch:",
+        mailError.message
+      );
+      emailStatus = { success: false, error: mailError.message };
+    }
+
+    // Provide an honest, safe message without breaking existing form states
+    const responseMessage = emailStatus.success
+      ? "Your message has been sent successfully!"
+      : "Your message has been saved successfully!";
+
     return res.status(201).json({
       success: true,
-      message: "Your message has been sent successfully!",
+      message: responseMessage,
+      emailSent: emailStatus.success,
       data: {
         id: contact._id,
         name: contact.name,
